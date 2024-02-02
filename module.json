@@ -1,0 +1,20 @@
+{
+    "id": "effects",
+    "version": "1.0.0",
+    "name": "Weather Effects",
+    "description": "Display weather effects such as snow falling.",
+    "humhub": {
+        "minVersion": "1.14"
+    },
+    "keywords": ["weather", "snowfall", "module"],
+    "screenshots": [],
+    "homepage": "https://greenmeteor.net",
+    "authors": [
+        {
+            "name": "Green Meteor",
+            "email": "hello@greenmeteor.net",
+            "homepage": "https://greenmeteor.net",
+            "role": "Owner"
+        }
+    ]	
+}
