@@ -1,6 +1,6 @@
 <?php
 
-namespace gm\humhub\modules\effects;
+namespace gm\humhub\modules\effects\assets;
 
 use humhub\modules\ui\view\components\View;
 use yii\web\AssetBundle;
@@ -13,12 +13,8 @@ class Assets extends AssetBundle
 {
     public $sourcePath = '@effects/resources';
 
-    public $css = [
-        'css/humhub-effects.css',
-    ];
-
     public $js = [
-        'js/humhub-effects.js',
+        'js/snowfall.js',
     ];
 
     /**
