@@ -14,9 +14,4 @@ class Module extends BaseModule
      */
     public $resourcesPath = 'resources';
 
-    /**
-     * @inheritdoc
-     */
-    public $controllerNamespace = 'gm\humhub\modules\effects\controllers';
-
 }
