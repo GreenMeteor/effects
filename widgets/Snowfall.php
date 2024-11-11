@@ -2,9 +2,9 @@
 
 namespace gm\humhub\modules\effects\widgets;
 
-use humhub\components\Widget;
-use gm\humhub\modules\effects\Assets;
 use Yii;
+use humhub\components\Widget;
+use gm\humhub\modules\effects\assets\Assets;
 
 /**
  * Snowfall widget to add falling snow effect to the page
