@@ -1,12 +1,12 @@
 {
     "id": "effects",
     "version": "1.0.0",
-    "name": "Weather Effects",
-    "description": "Display weather effects such as snow falling.",
+    "name": "Effects",
+    "description": "Add dynamic visual effects to your HumHub instance.",
     "humhub": {
         "minVersion": "1.14"
     },
-    "keywords": ["weather", "snowfall", "module"],
+    "keywords": ["sakurafall", "snowfall", "module"],
     "screenshots": [],
     "homepage": "https://greenmeteor.net",
     "authors": [
