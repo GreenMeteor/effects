@@ -11,6 +11,6 @@ class Events
      */
     public static function onLayoutAddonsInit($event)
     {
-        $event->sender->addWidget(widgets\Snowfall::class);
+        $event->sender->addWidget(widgets\Effects::class);
     }
 }
