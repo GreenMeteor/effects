@@ -5,6 +5,7 @@ namespace gm\humhub\modules\effects\assets;
 use humhub\modules\ui\view\components\View;
 use yii\web\AssetBundle;
 use yii\web\JqueryAsset;
+use Yii;
 
 /**
  * Asset bundle for Effects
@@ -13,21 +14,42 @@ class Assets extends AssetBundle
 {
     public $sourcePath = '@effects/resources';
 
-    public $js = [
-        'js/snowfall.js',
+    public $js = [];
+
+    public $depends = [
+        JqueryAsset::class,
     ];
 
     /**
-     * @inheritdoc
+     * Registers assets and applies settings based on configuration.
+     *
+     * @param \yii\web\View $view The view instance
+     * @return Assets
      */
     public static function register($view)
     {
-        $config = ['startSnowfall' => true];
-        $view->registerJsConfig('effects', $config);
-        return parent::register($view);
-    }
+        $module = Yii::$app->getModule('effects');
+        
+        if ($module === null) {
+            throw new \yii\base\InvalidConfigException("Module 'effects' is not available.");
+        }
 
-    public $depends = [
-        JqueryAsset::class
-    ];
+        $settingsManager = $module->getConfiguration();
+
+        $asset = new self();
+
+        if ($settingsManager->enableSnowfall) {
+            $asset->js[] = 'js/snowfall.js';
+            $view->registerJsConfig('effects', ['startSnowfall' => true]);
+        } elseif ($settingsManager->enableSakuraFall) {
+            $asset->js[] = 'js/sakurafall.js';
+            $view->registerJsConfig('effects', ['startSakuraFall' => true]);
+        }
+
+        $asset->publish($view->getAssetManager());
+
+        $asset->registerAssetFiles($view);
+
+        return $asset;
+    }
 }
