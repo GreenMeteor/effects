@@ -3,6 +3,8 @@
 namespace gm\humhub\modules\effects;
 
 use humhub\widgets\LayoutAddons;
+use gm\humhub\modules\effects\Module;
+use gm\humhub\modules\effects\Events;
 
 return [
     'id' => 'effects',
