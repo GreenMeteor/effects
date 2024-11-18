@@ -12,6 +12,8 @@ class Configuration extends Model
 
     public bool $enableSakuraFall = false;
     public bool $enableSnowfall = false;
+    public bool $enableLeaffall = false;
+    public bool $enableRainfall = false;
 
     /**
      * @inheritdoc
@@ -19,8 +21,7 @@ class Configuration extends Model
     public function rules()
     {
         return [
-            [['enableSakuraFall'], 'boolean'],
-            [['enableSnowfall'], 'boolean'],
+            [['enableSakuraFall', 'enableSnowfall', 'enableLeaffall', 'enableRainfall'], 'boolean'],
         ];
     }
 
@@ -32,6 +33,8 @@ class Configuration extends Model
         return [
             'enableSakuraFall' => Yii::t('EffectsModule.base', 'Enable Sakura Fall Effect'),
             'enableSnowfall' => Yii::t('EffectsModule.base', 'Enable Snowfall Effect'),
+            'enableLeaffall' => Yii::t('EffectsModule.base', 'Enable Leaf Fall Effect'),
+            'enableRainfall' => Yii::t('EffectsModule.base', 'Enable Rain Fall Effect'),
         ];
     }
 
@@ -43,6 +46,8 @@ class Configuration extends Model
         return [
             'enableSakuraFall' => Yii::t('EffectsModule.base', 'Toggle to enable Sakura Fall effect'),
             'enableSnowfall' => Yii::t('EffectsModule.base', 'Toggle to enable Snowfall effect'),
+            'enableLeaffall' => Yii::t('EffectsModule.base', 'Toggle to enable Leaf Fall effect'),
+            'enableRainfall' => Yii::t('EffectsModule.base', 'Toggle to enable Rain Fall effect'),
         ];
     }
 
@@ -53,6 +58,8 @@ class Configuration extends Model
     {
         $this->enableSakuraFall = (bool)$this->settingsManager->get('enableSakuraFall');
         $this->enableSnowfall = (bool)$this->settingsManager->get('enableSnowfall');
+        $this->enableLeaffall = (bool)$this->settingsManager->get('enableLeaffall');
+        $this->enableRainfall = (bool)$this->settingsManager->get('enableRainfall');
     }
 
     /**
@@ -66,6 +73,8 @@ class Configuration extends Model
 
         $this->settingsManager->set('enableSakuraFall', $this->enableSakuraFall);
         $this->settingsManager->set('enableSnowfall', $this->enableSnowfall);
+        $this->settingsManager->set('enableLeaffall', $this->enableLeaffall);
+        $this->settingsManager->set('enableRainfall', $this->enableRainfall);
 
         return true;
     }
