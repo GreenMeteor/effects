@@ -44,6 +44,12 @@ class Assets extends AssetBundle
         } elseif ($settingsManager->enableSakuraFall) {
             $asset->js[] = 'js/sakurafall.js';
             $view->registerJsConfig('effects', ['startSakuraFall' => true]);
+        } elseif ($settingsManager->enableLeaffall) {
+            $asset->js[] = 'js/leaffall.js';
+            $view->registerJsConfig('effects', ['startLeafFall' => true]);
+        } elseif ($settingsManager->enableRainfall) {
+            $asset->js[] = 'js/rainfall.js';
+            $view->registerJsConfig('effects', ['startRainFall' => true]);
         }
 
         $asset->publish($view->getAssetManager());
