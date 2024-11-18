@@ -24,6 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php $form = ActiveForm::begin(); ?>
             <?= $form->field($model, 'enableSnowfall')->checkbox() ?>
             <?= $form->field($model, 'enableSakuraFall')->checkbox() ?>
+            <?= $form->field($model, 'enableLeaffall')->checkbox() ?>
+            <?= $form->field($model, 'enableRainfall')->checkbox() ?>
 
             <div class="form-group">
                 <?= Html::submitButton(Yii::t('EffectsModule.base', 'Save'), ['class' => 'btn btn-primary']) ?>
