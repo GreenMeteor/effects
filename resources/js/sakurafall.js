@@ -7,7 +7,13 @@ humhub.module('effects.sakurafall', function(module, require, $) {
     var style;
 
     function createBlossom() {
-        var blossom = $('<div class="blossom">ðŸŒ¸</div>');
+        var blossom = $(`<div class="blossom">
+            <svg viewBox="0 0 30 30" width="20" height="20">
+                <path d="M15 3 C20 3, 25 8, 25 15 C25 22, 20 27, 15 27 C10 27, 5 22, 5 15 C5 8, 10 3, 15 3 
+                        Q15 8, 18 15 Q15 22, 15 27 Q15 22, 12 15 Q15 8, 15 3" 
+                    fill="#ffd7e5"/>
+            </svg>
+        </div>`);
 
         return blossom;
     }
