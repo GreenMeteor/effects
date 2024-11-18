@@ -7,7 +7,7 @@
         "minVersion": "1.14"
     },
     "keywords": ["sakurafall", "snowfall", "module"],
-    "screenshots": [],
+    "screenshots": ["resources/screenshot_1.gif"],
     "homepage": "https://greenmeteor.net",
     "authors": [
         {
