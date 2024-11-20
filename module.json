@@ -9,6 +9,7 @@
     "keywords": ["sakurafall", "snowfall", "module"],
     "screenshots": ["resources/screenshot_1.gif"],
     "homepage": "https://greenmeteor.net",
+    "issues": "https://github.com/GreenMeteor/effects/issues",
     "authors": [
         {
             "name": "Green Meteor",
