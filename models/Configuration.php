@@ -71,6 +71,24 @@ class Configuration extends Model
             return false;
         }
 
+        if ($this->enableSakuraFall) {
+            $this->enableSnowfall = false;
+            $this->enableLeaffall = false;
+            $this->enableRainfall = false;
+        } elseif ($this->enableSnowfall) {
+            $this->enableSakuraFall = false;
+            $this->enableLeaffall = false;
+            $this->enableRainfall = false;
+        } elseif ($this->enableLeaffall) {
+            $this->enableSakuraFall = false;
+            $this->enableSnowfall = false;
+            $this->enableRainfall = false;
+        } elseif ($this->enableRainfall) {
+            $this->enableSakuraFall = false;
+            $this->enableSnowfall = false;
+            $this->enableLeaffall = false;
+        }
+
         $this->settingsManager->set('enableSakuraFall', $this->enableSakuraFall);
         $this->settingsManager->set('enableSnowfall', $this->enableSnowfall);
         $this->settingsManager->set('enableLeaffall', $this->enableLeaffall);
