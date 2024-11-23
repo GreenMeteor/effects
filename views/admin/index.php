@@ -2,6 +2,7 @@
 
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model gm\humhub\modules\effects\models\Configuration */
@@ -9,17 +10,13 @@ use yii\helpers\Html;
 $this->title = Yii::t('EffectsModule.base', 'Effects Settings');
 $this->params['breadcrumbs'][] = $this->title;
 
-// Determine which effect is enabled
-$enabledEffect = null;
-if ($model->enableSakuraFall) {
-    $enabledEffect = 'enableSakuraFall';
-} elseif ($model->enableSnowfall) {
-    $enabledEffect = 'enableSnowfall';
-} elseif ($model->enableLeaffall) {
-    $enabledEffect = 'enableLeaffall';
-} elseif ($model->enableRainfall) {
-    $enabledEffect = 'enableRainfall';
-}
+// Define available effects
+$effectOptions = [
+    'enableSakuraFall' => Yii::t('EffectsModule.base', 'Sakura Fall'),
+    'enableSnowfall' => Yii::t('EffectsModule.base', 'Snowfall'),
+    'enableLeaffall' => Yii::t('EffectsModule.base', 'Leaf Fall'),
+    'enableRainfall' => Yii::t('EffectsModule.base', 'Rainfall'),
+];
 ?>
 
 <div class="panel panel-default">
@@ -35,22 +32,22 @@ if ($model->enableSakuraFall) {
 
         <?php $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($model, 'enableSnowfall')->checkbox([
-            'disabled' => $enabledEffect !== null && $enabledEffect !== 'enableSnowfall',
-        ]) ?>
-        <?= $form->field($model, 'enableSakuraFall')->checkbox([
-            'disabled' => $enabledEffect !== null && $enabledEffect !== 'enableSakuraFall',
-        ]) ?>
-        <?= $form->field($model, 'enableLeaffall')->checkbox([
-            'disabled' => $enabledEffect !== null && $enabledEffect !== 'enableLeaffall',
-        ]) ?>
-        <?= $form->field($model, 'enableRainfall')->checkbox([
-            'disabled' => $enabledEffect !== null && $enabledEffect !== 'enableRainfall',
-        ]) ?>
+        <?= $form->field($model, 'effectsEnabled')
+            ->checkbox() ?>
+
+        <?= $form->field($model, 'selectedEffect')
+            ->dropDownList($effectOptions, [
+                'prompt' => Yii::t('EffectsModule.base', '- Select Effect -'),
+                'disabled' => !$model->effectsEnabled,
+            ]) ?>
 
         <div class="form-group">
-            <?= Html::submitButton(Yii::t('EffectsModule.base', 'Save'), ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton(
+                Yii::t('EffectsModule.base', 'Save'),
+                ['class' => 'btn btn-primary']
+            ) ?>
         </div>
+
         <?php ActiveForm::end(); ?>
     </div>
 </div>
